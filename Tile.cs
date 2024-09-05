@@ -8,8 +8,6 @@ namespace HEROGAMEPLEASE
 {
     internal class Tile
     {
-        //hdfgdfg
-        
         
             private int xPosition;
             private int yPosition;
