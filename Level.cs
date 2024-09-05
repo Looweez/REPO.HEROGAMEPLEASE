@@ -18,6 +18,7 @@ namespace HEROGAMEPLEASE
             this.width = width;
             this.height = height;
             Tile = new char[width, height];
+            InitialiseTiles();
         }
 
         private void InitialiseTiles()
@@ -30,7 +31,7 @@ namespace HEROGAMEPLEASE
             Empty,
         }
 
-        private void CreateTile(int Position, char TileType)
+        private void CreateTile(int Position, int TileType)
         {
 
                 switch (TileType)
@@ -45,6 +46,27 @@ namespace HEROGAMEPLEASE
 
         }
 
-        
+        public override string ToString()
+        {
+
+            //or (int row = width )
+
+            /*foreach (char i in Tile)
+            {
+                Console.WriteLine(i + "\n");
+            }*/
+
+            for (int i = 0 < Tile.width; i++)
+            {
+                for (int j = 0 < Tile.height; j++)
+                {
+
+                }
+            }
+            
+            return Tile ;
+        }
+
+
     }
 }
