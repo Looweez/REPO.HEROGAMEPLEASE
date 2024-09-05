@@ -29,7 +29,7 @@ namespace HEROGAMEPLEASE
                 this.xPosition = xPosition;
                 this.yPosition = yPosition;
             }
-            abstract protected char Display
+            public abstract char Display
             {
                 get;
             }
