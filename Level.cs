@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static HEROGAMEPLEASE.Level;
 
 namespace HEROGAMEPLEASE
 {
     internal class Level
     {
-        private char[,] Tile;
+        private char[,] Tile; //2d array
         private int width;
         private int height;
 
@@ -19,18 +20,31 @@ namespace HEROGAMEPLEASE
             Tile = new char[width, height];
         }
 
-        enum TileType
+        private void InitialiseTiles()
         {
-            Empty
+            CreateTile();
         }
 
-        public void CreateTile(int Position, char tileType)
+        public enum TileType
         {
-            //return new Tile(Position, tileType);
-            switch (tileType)
-            {
-                //case Empty: 
-            }
+            Empty,
         }
+
+        private void CreateTile(int Position, char TileType)
+        {
+
+                switch (TileType)
+            {
+                    case '•':
+                         {
+                            EmptyTile emptyTile = new EmptyTile(width, height); //make new empty tile and put it in the level
+                         }
+                         break;
+            }
+            return ;
+
+        }
+
+        
     }
 }
