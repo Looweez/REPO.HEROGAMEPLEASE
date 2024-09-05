@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    internal class Tile
+    abstract class Tile
     {
         
             private int xPosition;
             private int yPosition;
-            private char Display;
+            //private char Display;
 
             public int XPosition
             {
@@ -29,9 +29,9 @@ namespace HEROGAMEPLEASE
                 this.xPosition = xPosition;
                 this.yPosition = yPosition;
             }
-            public char display
+            abstract protected char Display
             {
-                get { return Display; }
+                get;
             }
         
     }
