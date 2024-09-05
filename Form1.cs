@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace HEROGAMEPLEASE
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
-        public Form1()
+        private GameEngine engine;
+        public frmMain()
         {
             InitializeComponent();
+            engine = new GameEngine(10);
+            UpdateDisplay(engine);
+        }
+
+        private string UpdateDisplay(GameEngine engine)
+        {
+            return engine.ToString();
         }
     }
 }
