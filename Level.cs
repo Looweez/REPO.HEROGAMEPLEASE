@@ -24,9 +24,6 @@ namespace HEROGAMEPLEASE
         private void InitialiseTiles()
         {
             Position position;
-            CreateTile();
-
-
 
             for (int i = 0; i < width; i++)
             {
@@ -68,13 +65,13 @@ namespace HEROGAMEPLEASE
                 Console.WriteLine(i + "\n");
             }*/
 
-            string Output = '';
+            string Output = "huh";
 
             for (int i = 0; i < Tile.GetLength(0); i++)
             {
                 for (int j = 0; j < Tile.GetLength(1); j++)
                 {
-                    Output += Tile[i, j].Display.ToString();
+                    Output += Tile[i,j].Display.ToString();
                 }
             }
 
