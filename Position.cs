@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    internal class Position
+    public class Position
     {
         private int xPosition; // x coordinate
         private int yPosition; // y coordinate

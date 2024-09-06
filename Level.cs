@@ -24,12 +24,19 @@ namespace HEROGAMEPLEASE
         {
             Position position;
 
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < width; i++) //rows
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < height; j++)//columns
                 {
                     position = new Position(i, j);
-                    CreateTile(position, TileType.Empty);
+                    if (i == 0 || j == 0 || i == width || j == height)
+                    {
+                        CreateTile(position, TileType.Wall);
+                    }
+                    else
+                    {
+                        CreateTile(position, TileType.Empty);
+                    }
                 }
             }
         }
