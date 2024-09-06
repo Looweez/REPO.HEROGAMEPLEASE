@@ -37,6 +37,7 @@ namespace HEROGAMEPLEASE
         public enum TileType
         {
             Empty,
+            Wall,
         }
 
         private void CreateTile(Position Position, TileType tile)
@@ -47,6 +48,12 @@ namespace HEROGAMEPLEASE
                 case TileType.Empty:
                     {
                         EmptyTile emptyTile = new EmptyTile(width, height); //make new empty tile and put it in the level
+                    }
+                    break;
+
+                case TileType.Wall:
+                    {
+                        WallTile wallTile = new WallTile(width, height);
                     }
                     break;
             }
@@ -79,3 +86,4 @@ namespace HEROGAMEPLEASE
 
 
     }
+}
