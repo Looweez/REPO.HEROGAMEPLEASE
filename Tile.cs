@@ -6,26 +6,33 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    internal class Tile
+    public abstract class Tile
     {
 
-            private Position position;
-            private char Display;
+        private int xPosition;
+        private int yPosition;
+        //private char Display;
 
-            public Position Position
-            {
-                get { return position; }
-            }
+        public int XPosition
+        {
+            get { return xPosition; }
+        }
 
-            public Tile(Position position) // constructor
-            {
+        public int YPosition
+        {
+            get { return yPosition; }
+        }
 
-                this.position = position;
-            }
-            public char display
-            {
-                get { return Display; }
-            }
-        
+        public Tile(int xPosition, int yPosition) // constructor
+        {
+
+            this.xPosition = xPosition;
+            this.yPosition = yPosition;
+        }
+        public abstract char Display
+        {
+            get;
+        }
+
     }
 }

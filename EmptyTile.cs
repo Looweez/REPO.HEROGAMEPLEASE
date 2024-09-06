@@ -8,13 +8,20 @@ namespace HEROGAMEPLEASE
 {
     internal class EmptyTile : Tile
     {
-        private Position position;
-        
+        int xPosition;
+        int yPosition;
+        char display;
 
-        public EmptyTile(Position position) : base(position)// constructor
+        public EmptyTile(int xPosition, int yPosition) : base(xPosition, yPosition) // constructor
         {
+            this.xPosition = xPosition;
+            this.yPosition = yPosition;
+        }
 
-            this.position = position;
+        public override char Display
+        {
+            get { return '•'; }
         }
     }
+
 }
