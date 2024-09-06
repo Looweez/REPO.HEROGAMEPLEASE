@@ -8,26 +8,19 @@ namespace HEROGAMEPLEASE
 {
     internal class Tile
     {
-        
-            private int xPosition;
-            private int yPosition;
+
+            private Position position;
             private char Display;
 
-            public int XPosition
+            public Position Position
             {
-                get { return xPosition; }
+                get { return position; }
             }
 
-            public int YPosition
-            {
-                get { return yPosition; }
-            }
-
-            public Tile(int xPosition, int yPosition) // constructor
+            public Tile(Position position) // constructor
             {
 
-                this.xPosition = xPosition;
-                this.yPosition = yPosition;
+                this.position = position;
             }
             public char display
             {

@@ -29,7 +29,9 @@ namespace HEROGAMEPLEASE
             //return new Tile(Position, tileType);
             switch (tileType)
             {
-                //case Empty: 
+                case Empty:
+                    return Tile.Empty;
+                break;
             }
         }
     }

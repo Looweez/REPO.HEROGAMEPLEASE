@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    internal class EmptyTile
+    internal class EmptyTile : Tile
     {
-        int xPosition;
-        int yPosition;
+        private Position position;
+        
 
-        public EmptyTile(int xPosition, int yPosition) // constructor
+        public EmptyTile(Position position) : base(position)// constructor
         {
 
-            this.xPosition = xPosition;
-            this.yPosition = yPosition;
+            this.position = position;
         }
     }
 }
