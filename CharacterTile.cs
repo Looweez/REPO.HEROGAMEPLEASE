@@ -22,7 +22,7 @@ namespace HEROGAMEPLEASE
             vision = new CharacterTile[4];
         }
 
-        public void UpdateVision()
+        public void UpdateVision(Level level)
         {
 
         }
