@@ -9,7 +9,7 @@ namespace HEROGAMEPLEASE
 {
     internal class Level
     {
-        private char[,] Tile; //2d array
+        private Tile[,] Tile; //2d array
         private int width;
         private int height;
 
@@ -17,12 +17,25 @@ namespace HEROGAMEPLEASE
         {
             this.width = width;
             this.height = height;
-            Tile = new char[width, height];
+            Tile = new Tile[width, height];
+            InitialiseTiles();
         }
 
         private void InitialiseTiles()
         {
+            Position position;
             CreateTile();
+
+
+
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    position = new Position(i, j);
+                    CreateTile(position, TileType.Empty);
+                }
+            }
         }
 
         public enum TileType
@@ -30,12 +43,12 @@ namespace HEROGAMEPLEASE
             Empty,
         }
 
-        private void CreateTile(int Position, char TileType)
+        private void CreateTile(Position Position, TileType tile)
         {
 
-                switch (TileType)
+                switch (tile)
             {
-                    case '•':
+                    case TileType.Empty:
                          {
                             EmptyTile emptyTile = new EmptyTile(width, height); //make new empty tile and put it in the level
                          }
@@ -45,6 +58,29 @@ namespace HEROGAMEPLEASE
 
         }
 
-        
+        public override string ToString()
+        {
+
+            //or (int row = width )
+
+            /*foreach (char i in Tile)
+            {
+                Console.WriteLine(i + "\n");
+            }*/
+
+            string Output = '';
+
+            for (int i = 0; i < Tile.GetLength(0); i++)
+            {
+                for (int j = 0; j < Tile.GetLength(1); j++)
+                {
+                    Output += Tile[i, j].Display.ToString();
+                }
+            }
+
+            return Output ;
+        }
+
+
     }
 }

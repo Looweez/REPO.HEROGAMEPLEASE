@@ -14,7 +14,6 @@ namespace HEROGAMEPLEASE
 
         public EmptyTile(int xPosition, int yPosition) : base(xPosition, yPosition) // constructor
         {
-
             this.xPosition = xPosition;
             this.yPosition = yPosition;
         }
