@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    public abstract class CharacterTile : Tile
+    /*public abstract class CharacterTile : Tile
     {
         int hitPoints;
         int maximumHitPoints;
@@ -17,5 +17,5 @@ namespace HEROGAMEPLEASE
         {
 
         }
-    }
+    }*/
 }
