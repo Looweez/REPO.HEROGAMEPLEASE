@@ -23,13 +23,12 @@ namespace HEROGAMEPLEASE
 
         private void InitialiseTiles()
         {
-            Position position;
 
             for (int i = 0; i < Tile.GetLength(0); i++) //goes through row by row
             {
                 for (int j = 0; j < Tile.GetLength(1); j++)
                 {
-                    position = new Position(i, j);
+                    Position position = new Position(i, j);
                     CreateTile(position, TileType.Empty);
                 }
             }
@@ -42,42 +41,34 @@ namespace HEROGAMEPLEASE
 
         private void CreateTile(Position Position, TileType tile)
         {
+            if (Position.X < 0 || Position.X >= width || Position.Y < 0 || Position.Y >= height)
+            {
+                throw new ArgumentOutOfRangeException("Position is out of bounds.");
+            }
 
             switch (tile)
-        {
-                case TileType.Empty:
-                     {
-                        EmptyTile emptyTile = new EmptyTile(width, height); //make new empty tile and put it in the level
-                     }
-                     break;
-
-                    
-        }
-
-            /*switch (tile)
             {
                 case TileType.Empty:
-                    {
-                        // assign EmptyTile to the Tile array
-                        Tile[xPosition, yPosition] = new EmptyTile(xPosition, yPosition);
+                     {
+                        EmptyTile emptyTile = new EmptyTile(Position.X, Position.Y); //make new empty tile and put it in the level
+                        Tile[Position.X, Position.Y] = emptyTile;
                     }
-                    break;
-
-                    return;
-
-            }*/
+                     break;
+   
+            }
+           
         }
 
         public override string ToString()
         {
 
-            string Output = "huh";
+            string Output = "";
 
             for (int i = 0; i < Tile.GetLength(0); i++)
             {
                 for (int j = 0; j < Tile.GetLength(1); j++)
                 {
-                    if (Tile[i, j] != null)                           //this was breaking so i added in this random null thing i found and now it works so YEAAA
+                    if (Tile[i, j] != null)                              //help
                     {
                         Output += Tile[i, j].Display.ToString();
                     }
@@ -86,8 +77,6 @@ namespace HEROGAMEPLEASE
                         Output += "null";                
                     }
                 }
-
-                
 
                 Output += "\n"; //make new line
             }

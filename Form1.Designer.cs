@@ -36,7 +36,7 @@
             this.lblDisplay.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDisplay.Location = new System.Drawing.Point(12, 9);
             this.lblDisplay.Name = "lblDisplay";
-            this.lblDisplay.Size = new System.Drawing.Size(100, 23);
+            this.lblDisplay.Size = new System.Drawing.Size(453, 488);
             this.lblDisplay.TabIndex = 0;
             this.lblDisplay.Text = "label1";
             // 

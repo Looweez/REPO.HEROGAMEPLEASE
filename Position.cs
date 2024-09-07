@@ -8,27 +8,29 @@ namespace HEROGAMEPLEASE
 {
     internal class Position
     {
+
         private int xPosition; // x coordinate
         private int yPosition; // y coordinate
 
         public Position(int xPosition, int yPosition) // constructor
         {
-
             this.xPosition = xPosition;
             this.yPosition = yPosition;
         }
 
-
-        public int XPosition // property
+        // property
+        public int X
         {
             get { return xPosition; }
             set { xPosition = value; }
         }
 
-        public int YPosition // property
+        // property
+        public int Y                          //i changed these to just X and Y btw because XPosition and YPosition was confusing me
         {
             get { return yPosition; }
             set { yPosition = value; }
         }
+
     }
 }

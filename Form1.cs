@@ -22,6 +22,7 @@ namespace HEROGAMEPLEASE
 
         private string UpdateDisplay(GameEngine engine)
         {
+            lblDisplay.Text = engine.ToString();
             return engine.ToString();
         }
     }
