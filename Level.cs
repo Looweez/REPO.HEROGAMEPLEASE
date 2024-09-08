@@ -21,6 +21,8 @@ namespace HEROGAMEPLEASE
             InitialiseTiles();
         }
 
+        //--------------------------------------------------------------------------
+
         private void InitialiseTiles()
         {
 
@@ -29,15 +31,29 @@ namespace HEROGAMEPLEASE
                 for (int j = 0; j < Tile.GetLength(1); j++) //column by column
                 {
                     Position position = new Position(i, j);
-                    CreateTile(position, TileType.Empty);
+                    if (i == 0 || i == Tile.GetLength(0) - 1 || j == 0 || j == Tile.GetLength(1) - 1)
+                    {
+                        // create a wall tile if its in the first
+                        CreateTile(position, TileType.Wall);
+                    }
+                    else
+                    {
+                        // create empty tile if its not
+                        CreateTile(position, TileType.Empty);
+                    }
                 }
             }
         }
 
+        //--------------------------------------------------------------------------
+
         public enum TileType
         {
             Empty,
+            Wall,
         }
+
+        //--------------------------------------------------------------------------
 
         private void CreateTile(Position Position, TileType tile)
         {
@@ -52,12 +68,19 @@ namespace HEROGAMEPLEASE
                      {
                         EmptyTile emptyTile = new EmptyTile(Position.X, Position.Y); //make new empty tile and put it in the level
                         Tile[Position.X, Position.Y] = emptyTile;
+                     }
+                    break;
+                case TileType.Wall:
+                    {
+                        WallTile wallTile = new WallTile(Position.X, Position.Y); //make new wall tile and put it in the level
+                        Tile[Position.X, Position.Y] = wallTile;
                     }
-                     break;
+                    break;
    
             }
            
         }
+        //--------------------------------------------------------------------------
 
         public override string ToString()
         {

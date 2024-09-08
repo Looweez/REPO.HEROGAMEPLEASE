@@ -10,6 +10,7 @@ namespace HEROGAMEPLEASE
     {
         int xPosition;
         int yPosition;
+        char display;
 
         public WallTile(int xPosition, int yPosition) : base(xPosition, yPosition) // constructor
         {
