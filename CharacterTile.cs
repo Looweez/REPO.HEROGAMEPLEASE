@@ -9,6 +9,7 @@ namespace HEROGAMEPLEASE
 {
     public abstract class CharacterTile : Tile
     {
+        private Position position;
         int hitPoints;
         int maximumHitPoints;
         int attackPower;
@@ -17,6 +18,7 @@ namespace HEROGAMEPLEASE
         public CharacterTile(Position position, int hitPoints, int attackPower) : base(position.XPosition, position.YPosition)
         {
             maximumHitPoints = hitPoints;
+            this.position = position;
             this.hitPoints = hitPoints;
             this.attackPower = attackPower;
             vision = new Tile[4];
@@ -39,13 +41,10 @@ namespace HEROGAMEPLEASE
 
         public void UpdateVision(Level level)
         {
-            int x = position.Xposition; //row
-            int y = position.Yposition; //column
-
-            vision[0] = new Tile(x-1, y); //North
-            vision[1] = new Tile(x, y+1); //East
-            vision[2] = new Tile(x+1, y); //South
-            vision[3] = new Tile(x, y-1); //West
+            vision[0] = level.Tile[position.XPosition, position.YPosition-1]; //North
+            vision[1] = level.Tile[position.XPosition+1, position.YPosition]; //East
+            vision[2] = level.Tile[position.XPosition, position.YPosition+1]; //South
+            vision[3] = level.Tile[position.XPosition-1, position.YPosition]; //West
         }
     }
 }

@@ -8,7 +8,7 @@ namespace HEROGAMEPLEASE
 {
     public class Level
     {
-        private Tile[,] Tile; //2d array
+        public Tile[,] Tile; //2d array
         private int width;
         private int height;
 
