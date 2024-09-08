@@ -16,11 +16,13 @@ namespace HEROGAMEPLEASE
         public int XPosition
         {
             get { return xPosition; }
+            set { xPosition = value; }
         }
 
         public int YPosition
         {
             get { return yPosition; }
+            set { yPosition = value; }
         }
 
         public Tile(int xPosition, int yPosition) // constructor

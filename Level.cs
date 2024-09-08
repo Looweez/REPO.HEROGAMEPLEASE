@@ -45,6 +45,7 @@ namespace HEROGAMEPLEASE
         {
             Empty,
             Wall,
+            Hero,
         }
 
         private void CreateTile(Position Position, TileType tile)
@@ -91,6 +92,13 @@ namespace HEROGAMEPLEASE
             return Output;
         }
 
+        public void SwopTiles(Tile tile1, Tile tile2)
+        {
+            int tempX;
+            int tempY;
+            //tile1(Position.XPosition)
+            tile1[Position.XPosition]
 
+        }
     }
 }
