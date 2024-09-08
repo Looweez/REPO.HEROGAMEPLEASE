@@ -14,9 +14,9 @@ namespace HEROGAMEPLEASE
         int damageTaken;
         char targetCharacter;
         public Tile[] vision;
-        
 
-        public CharacterTile(Position position, int hitPoints, int attackPower) : base(position.X, position.Y)
+
+        public CharacterTile(int xPosition, int yPosition, int hitPoints, int attackPower) : base(xPosition, yPosition)
         {
 
             this.hitPoints = hitPoints;
@@ -27,8 +27,7 @@ namespace HEROGAMEPLEASE
 
         /*public Tile[]             //idk how to expose
         {
-            get { return vision; }
-            set { vision = value; }
+            vision { get; }
         }*/
 
         /*private void UpdateVision(Level level)        //need to do

@@ -13,13 +13,32 @@ namespace HEROGAMEPLEASE
         private int width;
         private int height;
 
-        public Level(int width, int height) //Constructor
+        
+
+        public Level(int width, int height, HeroTile heroTile = null) //Constructor
         {
             this.width = width;
             this.height = height;
             Tile = new Tile[width, height];
             InitialiseTiles();
+            GetRandomEmptyPosition();
+
+            if (heroTile == null)
+            {
+                Position randomPosition = GetRandomEmptyPosition();
+
+                CreateTile(randomPosition, TileType.Hero);
+
+            }
+            else
+            {          
+                CreateTile(new Position(heroTile.XPosition, heroTile.YPosition), TileType.Hero);
+            }
         }
+
+        //****pg 19 - need to store HeroTile object as field of level class (???)
+
+        public HeroTile heroTile { get; } //read only property of hero tile
 
         //--------------------------------------------------------------------------
 
@@ -33,7 +52,7 @@ namespace HEROGAMEPLEASE
                     Position position = new Position(i, j);
                     if (i == 0 || i == Tile.GetLength(0) - 1 || j == 0 || j == Tile.GetLength(1) - 1)
                     {
-                        // create a wall tile if its in the first
+                        // create a wall tile
                         CreateTile(position, TileType.Wall);
                     }
                     else
@@ -51,6 +70,8 @@ namespace HEROGAMEPLEASE
         {
             Empty,
             Wall,
+            Hero,
+
         }
 
         //--------------------------------------------------------------------------
@@ -72,11 +93,17 @@ namespace HEROGAMEPLEASE
                     break;
                 case TileType.Wall:
                     {
-                        WallTile wallTile = new WallTile(Position.X, Position.Y); //make new wall tile and put it in the level
+                        WallTile wallTile = new WallTile(Position.X, Position.Y); //wall tile
                         Tile[Position.X, Position.Y] = wallTile;
                     }
                     break;
-   
+                case TileType.Hero:
+                    {
+                        HeroTile heroTile = new HeroTile(Position.X, Position.Y); //hero tile
+                        Tile[Position.X, Position.Y] = heroTile;
+                    }
+                    break;
+
             }
            
         }
@@ -107,6 +134,34 @@ namespace HEROGAMEPLEASE
             return Output ;
         }
 
+        //--------------------------------------------------------------------------
+
+        private Position GetRandomEmptyPosition()
+        {
+            Random random = new Random();
+
+            int randomX = random.Next(Tile.GetLength(0));
+            int randomY = random.Next(Tile.GetLength(1));
+
+            return new Position(randomX, randomY);
+        }
+
+        //--------------------------------------------------------------------------
+
+        public void SwopTiles(Tile tile1, Tile tile2)
+        {
+            //get the positions and store them in position1 and position2
+            Position pos1 = new Position(tile1.XPosition, tile1.YPosition);
+            Position pos2 = new Position(tile2.XPosition, tile2.YPosition);
+
+            //swap
+            Tile temp = Tile[pos1.X, pos1.Y];                           //temp = tile1
+            Tile[pos1.X, pos1.Y] = Tile[pos2.X, pos2.Y];                //tile 1 = tile 2
+            Tile[pos2.X, pos2.Y] = temp;                                //tile2 = temp
+
+        }
+
+        //--------------------------------------------------------------------------
 
     }
 }
