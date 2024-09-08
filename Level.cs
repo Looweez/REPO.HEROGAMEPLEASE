@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    internal class Level
+    public class Level
     {
         private Tile[,] Tile; //2d array
         private int width;
