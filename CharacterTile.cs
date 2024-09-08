@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    /*public abstract class CharacterTile : Tile
+    public abstract class CharacterTile : Tile
     {
         int hitPoints;
         int maximumHitPoints;
         int attackPower;
         public CharacterTile[] vision;
 
-        public CharacterTile(Position position, int hitPoints, int attackPower)
+        public CharacterTile(Position position, int hitPoints, int attackPower) : base(position.X, position.Y)
         {
-
+            this.hitPoints = hitPoints;
+            this.maximumHitPoints = hitPoints;
+            this.attackPower = attackPower;
+            vision = new CharacterTile[4];
         }
-    }*/
+    }
 }
