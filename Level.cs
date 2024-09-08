@@ -26,7 +26,7 @@ namespace HEROGAMEPLEASE
 
             for (int i = 0; i < Tile.GetLength(0); i++) //goes through row by row
             {
-                for (int j = 0; j < Tile.GetLength(1); j++)
+                for (int j = 0; j < Tile.GetLength(1); j++) //column by column
                 {
                     Position position = new Position(i, j);
                     CreateTile(position, TileType.Empty);

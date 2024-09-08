@@ -11,7 +11,7 @@ namespace HEROGAMEPLEASE
         
             private int xPosition;
             private int yPosition;
-            //private char Display;
+            
 
             public int XPosition
             {
