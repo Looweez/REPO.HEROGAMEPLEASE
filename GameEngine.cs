@@ -24,5 +24,29 @@ namespace HEROGAMEPLEASE
         {
             return currentLevel.ToString();
         }
+
+        private bool MoveHero(Direction direction)
+        {
+            if (direction == Direction.Up)
+            {
+                
+            }
+            else if (direction == Direction.Down)
+            {
+
+            }
+            else if (direction == Direction.Left)
+            {
+
+            }
+            else if (direction == Direction.Right)
+            {
+
+            }
+               
+
+
+            return true;
+        }
     }
 }

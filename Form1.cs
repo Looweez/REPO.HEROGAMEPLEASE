@@ -10,6 +10,15 @@ using System.Windows.Forms;
 
 namespace HEROGAMEPLEASE
 {
+    public enum Direction
+    {
+        Up,
+        Right,
+        Down,
+        Left,
+        None
+    }
+
     public partial class frmMain : Form
     {
         private GameEngine engine;
