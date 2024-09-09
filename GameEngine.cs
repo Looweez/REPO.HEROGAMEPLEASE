@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    internal class GameEngine
+    public class GameEngine
     {
         private int numLevels;
         private Random random = new Random();
@@ -36,9 +36,11 @@ namespace HEROGAMEPLEASE
                 //return true
                 //else
                 //return false
-                targetTile = vision[0];
-                if (targetTile == EmptyTile)
+                targetTile = currentLevel.Hero.Vision[(int)direction];
+                if (targetTile is EmptyTile)
                 {
+                    //swopTiles
+                    //Updatevision
                     return true;
                 }
                 else
@@ -48,15 +50,15 @@ namespace HEROGAMEPLEASE
             }
             else if (direction == Direction.Down)
             {
-                targetTile = vision[2];
+                targetTile = currentLevel.Hero.Vision[(int)direction];
             }
             else if (direction == Direction.Left)
             {
-                targetTile = vision[3];
+                targetTile = currentLevel.Hero.Vision[(int)direction];
             }
             else if (direction == Direction.Right)
             {
-                targetTile = vision[1];
+                targetTile = currentLevel.Hero.Vision[(int)direction];
             }
 
            

@@ -12,6 +12,8 @@ namespace HEROGAMEPLEASE
         private int width;
         private int height;
 
+        private HeroTile hero;
+
         public Level(int width, int height) //Constructor
         {
             this.width = width;
@@ -94,11 +96,20 @@ namespace HEROGAMEPLEASE
 
         public void SwopTiles(Tile tile1, Tile tile2)
         {
-            int tempX;
-            int tempY;
-            //tile1(Position.XPosition)
-            tile1[Position.XPosition]
+            //get the positions and store them in position1 and position2
+            Position pos1 = new Position(tile1.XPosition, tile1.YPosition);
+            Position pos2 = new Position(tile2.XPosition, tile2.YPosition);
 
+            //swap
+            Tile temp = Tile[pos1.XPosition, pos1.YPosition];                           //temp = tile1
+            Tile[pos1.XPosition, pos1.YPosition] = Tile[pos2.XPosition, pos2.YPosition];//tile 1 = tile 2
+            Tile[pos2.XPosition, pos2.YPosition] = temp;                                //tile2 = temp
+
+        }
+
+        public HeroTile Hero
+        {
+            get { return hero; }
         }
     }
 }

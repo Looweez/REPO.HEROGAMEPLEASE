@@ -15,6 +15,12 @@ namespace HEROGAMEPLEASE
         int attackPower;
         public Tile[] vision;
 
+        public Tile[] Vision
+        { 
+            get { return vision; } 
+            set { vision = value; }
+        }
+
         public CharacterTile(Position position, int hitPoints, int attackPower) : base(position.XPosition, position.YPosition)
         {
             maximumHitPoints = hitPoints;

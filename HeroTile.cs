@@ -11,6 +11,7 @@ namespace HEROGAMEPLEASE
         int hitPoints;
         int maximumHitPoints;
         int attackPower;
+        public Position position;
 
         public HeroTile(Position position): base (position,40,5)
         {
