@@ -27,26 +27,44 @@ namespace HEROGAMEPLEASE
 
         private bool MoveHero(Direction direction)
         {
+            Tile targetTile = null;
+
             if (direction == Direction.Up)
             {
-                
+                //this == this
+                //if vision[1] == emptytile then
+                //return true
+                //else
+                //return false
+                targetTile = vision[0];
+                if (targetTile == EmptyTile)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else if (direction == Direction.Down)
             {
-
+                targetTile = vision[2];
             }
             else if (direction == Direction.Left)
             {
-
+                targetTile = vision[3];
             }
             else if (direction == Direction.Right)
             {
-
+                targetTile = vision[1];
             }
-               
 
+           
+        }
 
-            return true;
+        public void TriggeMovement(Direction direction)
+        {
+            MoveHero(direction);
         }
     }
 }

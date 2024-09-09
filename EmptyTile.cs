@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    internal class EmptyTile : Tile
+    public class EmptyTile : Tile
     {
         int xPosition;
         int yPosition;
