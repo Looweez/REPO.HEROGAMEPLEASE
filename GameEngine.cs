@@ -14,7 +14,6 @@ namespace HEROGAMEPLEASE
         private const int MIN_SIZE = 10;
         private const int MAX_SIZE = 20;
         private Level currentLevel;
-        // private bool MoveHero(Direction direction);
 
         public GameEngine(int numLevels)
         {
@@ -37,7 +36,7 @@ namespace HEROGAMEPLEASE
             None
         }
 
-        private bool MoveHero(Direction direction)
+       private bool MoveHero(Direction direction)
         {
             Tile targetTile = null;
 
@@ -51,8 +50,8 @@ namespace HEROGAMEPLEASE
                 targetTile = currentLevel.Hero.Vision[(int)direction];
                 if (targetTile is EmptyTile)
                 {
-                    //swopTiles
-                    //Updatevision
+                    SwopTiles();
+                    UpdateVision();
                     return true;
                 }
                 else
@@ -81,7 +80,7 @@ namespace HEROGAMEPLEASE
 
         }
 
-        public void TriggeMovement(Direction direction)
+        public void TriggerMovement(Direction direction)
         {
             MoveHero(direction);
         }
@@ -95,12 +94,14 @@ namespace HEROGAMEPLEASE
         }
 
 
+
         public void NextLevel()
         {
             numLevels++;
-            //temporarily store hero
-            currentLevel = new Level(random.Next(MIN_SIZE, MAX_SIZE + 1), random.Next(MIN_SIZE, MAX_SIZE + 1));
-            //pass herotile to next level
+            HeroTile tempHeroTile = currentLevel.heroTile;
+            int newWidth = random.Next(MIN_SIZE, MAX_SIZE + 1);
+            int newHeight = random.Next(MIN_SIZE, MAX_SIZE + 1);
+            currentLevel = new Level(newWidth, newHeight, tempHeroTile);
         }
 
     }

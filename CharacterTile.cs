@@ -8,6 +8,7 @@ namespace HEROGAMEPLEASE
 {
     public abstract class CharacterTile : Tile
     {
+        private Position position;
         int hitPoints;
         int maximumHitPoints;
         int attackPower;
@@ -30,32 +31,26 @@ namespace HEROGAMEPLEASE
             vision = new Tile[4];
         }
 
-        /*public Tile[]             //idk how to expose
-        {
-            vision { get; }
-        }*/
-
 
         public void TakeDamage(int damageTaken)
         {
             hitPoints -= damageTaken;
-            if (hitPoints < 0) 
+            if (this.hitPoints < 0) 
             {
-                hitPoints = 0;
+                this.hitPoints = 0;
             }
         }
 
-        public void Attack(char targetCharacter)
+        public void Attack(CharacterTile targetCharacter)
         {
-            //targetCharacter                            //to do
-            TakeDamage(attackPower);
+            targetCharacter.TakeDamage(this.attackPower);
         }
 
         public bool IsDead
         {
             get
             {
-                if (hitPoints == 0)
+                if (hitPoints <= 0)
                 {
                     return true;
                 }
@@ -68,10 +63,10 @@ namespace HEROGAMEPLEASE
 
         public void UpdateVision(Level level)
         {
-            vision[0] = level.Tile[position.XPosition, position.YPosition - 1]; //North
-            vision[1] = level.Tile[position.XPosition + 1, position.YPosition]; //East
-            vision[2] = level.Tile[position.XPosition, position.YPosition + 1]; //South
-            vision[3] = level.Tile[position.XPosition - 1, position.YPosition]; //West
+            vision[0] = level.Tile[position.X, position.Y - 1]; //North
+            vision[1] = level.Tile[position.X + 1, position.Y]; //East
+            vision[2] = level.Tile[position.X, position.Y + 1]; //South
+            vision[3] = level.Tile[position.X - 1, position.Y]; //West
         }
 
     }

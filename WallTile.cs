@@ -20,7 +20,7 @@ namespace HEROGAMEPLEASE
 
         public override char Display
         {
-            get { return '▮'; }
+            get { return '█'; }
         }
     }
 

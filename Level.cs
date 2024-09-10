@@ -9,6 +9,7 @@ namespace HEROGAMEPLEASE
 {
     public class Level
     {
+
         private Tile[,] Tile; //2d array
         private int width;
         private int height;
@@ -25,9 +26,17 @@ namespace HEROGAMEPLEASE
 
             if (heroTile == null)
             {
-                Position randomPosition = GetRandomEmptyPosition();
+                Position randomPosition;
+
+                do { randomPosition = GetRandomEmptyPosition(); }
+                while (!(Tile[randomPosition.X, randomPosition.Y] is EmptyTile)) ;
 
                 CreateTile(randomPosition, TileType.Hero);
+
+                /*if (randomPosition == Tile.WallTile)    //dont spawn in walltile
+                {
+
+                }*/
 
             }
             else
@@ -37,7 +46,10 @@ namespace HEROGAMEPLEASE
 
             if (exitTile == null)
             {
-                Position randomPosition = GetRandomEmptyPosition();
+                Position randomPosition;
+
+                do { randomPosition = GetRandomEmptyPosition(); }
+                while (!(Tile[randomPosition.X, randomPosition.Y] is EmptyTile));
 
                 CreateTile(randomPosition, TileType.Exit);
 
@@ -48,9 +60,20 @@ namespace HEROGAMEPLEASE
             }
         }
 
+        public Tile GetTileAt(int x, int y)
+        {
+            if (x >= 0 && x < Tile.GetLength(0) && y >= 0 && y < Tile.GetLength(1))
+            {
+                return Tile[x, y];
+            }
+            return null;
+        }
+
+
         //****pg 19 - need to store HeroTile object as field of level class (???)
 
         public HeroTile heroTile { get; } //read only property of hero tile
+        public ExitTile exitTile { get; }
 
         //--------------------------------------------------------------------------
 
@@ -137,7 +160,7 @@ namespace HEROGAMEPLEASE
             {
                 for (int j = 0; j < Tile.GetLength(1); j++)
                 {
-                    if (Tile[i, j] != null)                              //help
+                    if (Tile[i, j] != null)                              
                     {
                         Output += Tile[i, j].Display.ToString();
                     }
