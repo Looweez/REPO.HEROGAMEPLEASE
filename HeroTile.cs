@@ -12,11 +12,13 @@ namespace HEROGAMEPLEASE
         int maximumHitPoints;
         int attackPower;
 
-        public HeroTile(Position position) : base(position)
+        public HeroTile(int xPosition, int yPosition) : base(xPosition, yPosition, 40, 5)
         {
-            maximumHitPoints = 40;
-            attackPower = 5;
+            this.maximumHitPoints = 40;
+            this.hitPoints = maximumHitPoints; //hitpoints start at max
+            this.attackPower = 5;
         }
+
 
         public override char Display
         {

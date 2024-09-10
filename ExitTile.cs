@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace HEROGAMEPLEASE
 {
-    internal class EmptyTile : Tile
+    public class ExitTile : Tile
     {
+
         int xPosition;
         int yPosition;
         char display;
 
-        public EmptyTile(int xPosition, int yPosition) : base(xPosition, yPosition) // constructor
+        public ExitTile(int xPosition, int yPosition) : base(xPosition, yPosition) // constructor
         {
             this.xPosition = xPosition;
             this.yPosition = yPosition;
@@ -20,7 +21,7 @@ namespace HEROGAMEPLEASE
 
         public override char Display
         {
-            get { return '.'; }
+            get { return '▒'; }
         }
     }
 }

@@ -10,6 +10,15 @@ using System.Windows.Forms;
 
 namespace HEROGAMEPLEASE
 {
+    public enum Direction
+    {
+        Up,
+        Right,
+        Down,
+        Left,
+        None
+    }
+
     public partial class frmMain : Form
     {
         private GameEngine engine;
@@ -24,6 +33,34 @@ namespace HEROGAMEPLEASE
         {
             lblDisplay.Text = engine.ToString();
             return engine.ToString();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void btnUp_Click(object sender, EventArgs e)
+        {
+            //TriggerMovement();
+            UpdateDisplay(engine);
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            //TriggerMovement();
+            UpdateDisplay(engine);
+        }
+
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            //TriggerMovement();
+            UpdateDisplay(engine);
+        }
+
+        private void btnLeft_Click(object sender, EventArgs e)
+        {
+            //TriggerMovement();
+            UpdateDisplay(engine);
         }
     }
 }

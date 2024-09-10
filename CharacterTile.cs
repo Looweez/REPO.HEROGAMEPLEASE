@@ -8,15 +8,21 @@ namespace HEROGAMEPLEASE
 {
     public abstract class CharacterTile : Tile
     {
+        private Position position;
         int hitPoints;
         int maximumHitPoints;
         int attackPower;
         int damageTaken;
         char targetCharacter;
         public Tile[] vision;
-        
+        public Tile[] Vision
+        {
+            get { return vision; }
+            set { vision = value; }
+        }
 
-        public CharacterTile(Position position, int hitPoints, int attackPower) : base(position.X, position.Y)
+
+        public CharacterTile(int xPosition, int yPosition, int hitPoints, int attackPower) : base(xPosition, yPosition)
         {
 
             this.hitPoints = hitPoints;
@@ -25,37 +31,26 @@ namespace HEROGAMEPLEASE
             vision = new Tile[4];
         }
 
-        /*public Tile[]             //idk how to expose
-        {
-            get { return vision; }
-            set { vision = value; }
-        }*/
-
-        /*private void UpdateVision(Level level)        //need to do
-        {
-            Tile[,] = 
-        }*/
 
         public void TakeDamage(int damageTaken)
         {
             hitPoints -= damageTaken;
-            if (hitPoints < 0) 
+            if (this.hitPoints < 0) 
             {
-                hitPoints = 0;
+                this.hitPoints = 0;
             }
         }
 
-        public void Attack(char targetCharacter)
+        public void Attack(CharacterTile targetCharacter)
         {
-            //targetCharacter                            //to do
-            TakeDamage(attackPower);
+            targetCharacter.TakeDamage(this.attackPower);
         }
 
         public bool IsDead
         {
             get
             {
-                if (hitPoints == 0)
+                if (hitPoints <= 0)
                 {
                     return true;
                 }
@@ -64,6 +59,14 @@ namespace HEROGAMEPLEASE
                     return false; // Return a different character based on the condition
                 }
             }
+        }
+
+        public void UpdateVision(Level level)
+        {
+            vision[0] = level.Tile[position.X, position.Y - 1]; //North
+            vision[1] = level.Tile[position.X + 1, position.Y]; //East
+            vision[2] = level.Tile[position.X, position.Y + 1]; //South
+            vision[3] = level.Tile[position.X - 1, position.Y]; //West
         }
 
     }
