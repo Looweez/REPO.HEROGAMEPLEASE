@@ -14,6 +14,11 @@ namespace HEROGAMEPLEASE
         int damageTaken;
         char targetCharacter;
         public Tile[] vision;
+        public Tile[] Vision
+        {
+            get { return vision; }
+            set { vision = value; }
+        }
 
 
         public CharacterTile(int xPosition, int yPosition, int hitPoints, int attackPower) : base(xPosition, yPosition)
@@ -30,10 +35,6 @@ namespace HEROGAMEPLEASE
             vision { get; }
         }*/
 
-        /*private void UpdateVision(Level level)        //need to do
-        {
-            Tile[,] = 
-        }*/
 
         public void TakeDamage(int damageTaken)
         {
@@ -63,6 +64,14 @@ namespace HEROGAMEPLEASE
                     return false; // Return a different character based on the condition
                 }
             }
+        }
+
+        public void UpdateVision(Level level)
+        {
+            vision[0] = level.Tile[position.XPosition, position.YPosition - 1]; //North
+            vision[1] = level.Tile[position.XPosition + 1, position.YPosition]; //East
+            vision[2] = level.Tile[position.XPosition, position.YPosition + 1]; //South
+            vision[3] = level.Tile[position.XPosition - 1, position.YPosition]; //West
         }
 
     }

@@ -7,7 +7,7 @@ using static HEROGAMEPLEASE.Level;
 
 namespace HEROGAMEPLEASE
 {
-    internal class Level
+    public class Level
     {
         private Tile[,] Tile; //2d array
         private int width;
@@ -15,7 +15,7 @@ namespace HEROGAMEPLEASE
 
         
 
-        public Level(int width, int height, HeroTile heroTile = null) //Constructor
+        public Level(int width, int height, HeroTile heroTile = null, HeroTile exitTile = null) //Constructor
         {
             this.width = width;
             this.height = height;
@@ -33,6 +33,18 @@ namespace HEROGAMEPLEASE
             else
             {          
                 CreateTile(new Position(heroTile.XPosition, heroTile.YPosition), TileType.Hero);
+            }
+
+            if (exitTile == null)
+            {
+                Position randomPosition = GetRandomEmptyPosition();
+
+                CreateTile(randomPosition, TileType.Exit);
+
+            }
+            else
+            {
+                CreateTile(new Position(exitTile.XPosition, exitTile.YPosition), TileType.Exit);
             }
         }
 
@@ -71,6 +83,7 @@ namespace HEROGAMEPLEASE
             Empty,
             Wall,
             Hero,
+            Exit,
 
         }
 
@@ -101,6 +114,12 @@ namespace HEROGAMEPLEASE
                     {
                         HeroTile heroTile = new HeroTile(Position.X, Position.Y); //hero tile
                         Tile[Position.X, Position.Y] = heroTile;
+                    }
+                    break;
+                case TileType.Exit:
+                    {
+                        ExitTile exitTile = new ExitTile(Position.X, Position.Y); //hero tile
+                        Tile[Position.X, Position.Y] = exitTile;
                     }
                     break;
 
@@ -163,5 +182,9 @@ namespace HEROGAMEPLEASE
 
         //--------------------------------------------------------------------------
 
+        public HeroTile Hero
+        {
+            get { return Hero; }
+        }
     }
 }
