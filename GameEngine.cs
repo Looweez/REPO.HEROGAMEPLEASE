@@ -74,6 +74,11 @@ namespace HEROGAMEPLEASE
             }
 
 
+            if (targetTile is ExitTile)               //if hero moves onto exittile
+            {
+
+            }
+
         }
 
         public void TriggeMovement(Direction direction)
@@ -93,7 +98,9 @@ namespace HEROGAMEPLEASE
         public void NextLevel()
         {
             numLevels++;
-
+            //temporarily store hero
+            currentLevel = new Level(random.Next(MIN_SIZE, MAX_SIZE + 1), random.Next(MIN_SIZE, MAX_SIZE + 1));
+            //pass herotile to next level
         }
 
     }
